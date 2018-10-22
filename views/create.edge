@@ -1,0 +1,57 @@
+@layout('Layout.app')
+
+@section('content')
+   <header class="masthead" style="background-image: url('/img/contact-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Create a new post</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 offset-md-2">
+     <form action='/posts/store' method="POST" enctype="multipart/form-data">
+            <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                    <label>Title</label>
+                    <input type="text" placeholder="Title" name="title" class="form-control">
+                    <label>Subtitle</label>
+                    <input type="text" placeholder="Subtitle" name="subtitle" class="form-control">
+                    <label>Description</label>
+                    <input type="text" placeholder="Description" name="description" class="form-control">
+                    <label>Content</label>
+                    <textarea id='postContent' name="content" placeholder="Content......" id="" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group mt-5">
+                 <input type="file" name="image" class="form-control-file">
+            </div>
+            <div class="form-group text-center my-4">
+
+                <button class="btn btn-primary">Create Post</button>
+
+            </div>
+    </form>
+          </div>
+      </div>
+  </div>
+@endsection
+
+@section('styles')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+
+@endsection
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+<script>
+    $('#postContent').summernote();
+</script>
+@endsection
