@@ -1,6 +1,6 @@
 
 const user = require('../database/models/user')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt-nodejs')
 
 module.exports = (req,res)=>{
 
@@ -10,6 +10,9 @@ user.findOne({email},(error,user)=>{
 
     if(user)
     {
+    
+
+
         bcrypt.compare(password,user.password,(error,same)=>{
 
             if(same)
